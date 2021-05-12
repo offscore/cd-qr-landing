@@ -20,6 +20,11 @@ div {
 	function wantToSendMail () {
 		return CryptoJS.AES.decrypt("U2FsdGVkX1+5gKfiQdRwVbMPSk8zRQULptjr+peoDsueyGOkyDXpawYV2JJ0nnpZ", "Please bots and crawlers stay out").toString(CryptoJS.enc.Utf8);
 	}
+	
+	const params = new URLSearchParams(window.location.search);
+	console.log(params.get('k'));
+	
+	document.getElementById("reply").content = params.get('k');
 </script>
 </head>
 
@@ -28,6 +33,7 @@ div {
 	<div>
 		<h1>Test landing page for QR code on CD</h1>
 		<p>Cool project</p>
+		<p id="reply"></p>
 	</div>
 
 </body>
