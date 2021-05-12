@@ -34,8 +34,11 @@ div {
 	}
 	
 	const params = new URLSearchParams(window.location.search);
-	console.log(params.get('k'));
+	const replyElement = document.getElementById("reply");
 	
-	document.getElementById("reply").innerHTML = "K parameter is: "+params.get('k');
+	if (params == null || params.get('key') == null)
+		replyElement.innerHTML = "No KEY was given on the URL, show info page";
+	else
+		replyElement.innerHTML = "KEY parameter is: "+params.get('k');
 </script>
 </html>
