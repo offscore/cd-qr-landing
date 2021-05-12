@@ -23,7 +23,7 @@ div {
 	<div>
 		<h1>Test landing page for QR code on CD</h1>
 		<p>Cool project</p>
-		<p id="reply"></p>
+		<p id="reply">This Should Change</p>
 	</div>
 
 </body>
@@ -36,6 +36,6 @@ div {
 	const params = new URLSearchParams(window.location.search);
 	console.log(params.get('k'));
 	
-	document.getElementById("reply").content = params.get('k');
+	document.getElementById("reply").innerHTML = "K parameter is: "+params.get('k');
 </script>
 </html>
