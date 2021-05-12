@@ -29,8 +29,8 @@ div {
 </body>
 
 <script type="text/javascript">
-	function wantToSendMail () {
-		return CryptoJS.AES.decrypt("U2FsdGVkX1+5gKfiQdRwVbMPSk8zRQULptjr+peoDsueyGOkyDXpawYV2JJ0nnpZ", "Please bots and crawlers stay out").toString(CryptoJS.enc.Utf8);
+	function decrypt () {
+		return CryptoJS.AES.decrypt("encripted", "key").toString(CryptoJS.enc.Utf8);
 	}
 	
 	const params = new URLSearchParams(window.location.search);
@@ -39,6 +39,6 @@ div {
 	if (params == null || params.get('key') == null)
 		replyElement.innerHTML = "No KEY was given on the URL, show info page";
 	else
-		replyElement.innerHTML = "KEY parameter is: "+params.get('k');
+		replyElement.innerHTML = "KEY parameter is: "+params.get('key');
 </script>
 </html>
