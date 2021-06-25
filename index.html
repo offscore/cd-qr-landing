@@ -4,13 +4,61 @@
 	<link rel=icon href=logo.png sizes="16x16 32x32" type="image/png">
 <style> 
 body {
-	background: #D2FAF7;
-	font-family: "Trebuchet MS", Helvetica, sans-serif
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-image: url(res/Itch_BG2.png);
+	background-repeat: repeat;
+	background-position: 50% 0;
+	color: white;
+	margin: 0px;
 }
 
-div {
-	margin: 0 auto;
-	width: 70%;
+h1 {
+  color: #dda449;
+  text-align: center;
+  margin-bottom:64px;
+  margin-top:32px;
+}
+
+a:link {
+  color: #dda449;
+  text-decoration: none;
+}
+a:hover {
+  color: #dda449;
+  text-decoration: underline;
+}
+a:visited {
+  color: #dda449;
+  text-decoration: underline overline;
+}
+
+.image_header {
+display:block;
+text-align:center;
+	width: 100%;
+	margin: 0px;
+}
+
+.hidden {
+	display: none;
+}
+
+.header_banner {
+	width: 100%;
+}
+
+@media (max-width: 840px) {
+	div {
+		margin: 0 auto;
+		width: 90%;
+	}
+}
+@media (min-width: 839px) {
+	div {
+		margin: 0 auto;
+		width: 70%;
+		min-width: 600px;
+	}
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -19,26 +67,50 @@ div {
 </head>
 
 <body>
-
+	<div class="image_header">
+		<img class="header_banner" src="res/Itch_banner_v2x.gif">
+	</div>
 	<div>
-		<h1>Test landing page for QR code on CD</h1>
-		<p>Cool project</p>
-		<p id="reply">This Should Change</p>
+		<h1>Off-Score games download for CD owners</h1>
+		<div id="no_key_found">
+		<p>This is the download website for the games in the <a href="http://offscoreproject.com">Off-Score Project</a>, for owners of the physical CDs of the album.</p>
+		<p>It seems you have arrived here but you don't have the right URL with the proper code. If you own the CD, make sure to type the full written URL on the inside. Alternatively, you can scan the QR code printed in the CD.</p>
+		<p>If you are having troubles with the download of the games, send us an email at <a href="mailto:offscore.project@gmail.com">offscoreproject@gmail.com</a></p>
+		</div>
+		<div id="key_found">
+			<p>This is the download website for the games in the <a href="http://offscoreproject.com">Off-Score Project</a>, for owners of the physical CDs of the album.</p>
+			<p>Thanks for buying our CD and supporting the project!</p>
+			<p>You can access and download the games clicking <a href="" id="url_link">Here</a></p>
+			<p/>
+			<p>If you are having troubles with the download of the games, send us an email at <a href="mailto:offscore.project@gmail.com">offscoreproject@gmail.com</a></p>
+		</div>
+		<div class="socials">
+			<a href="https://twitter.com/offscoreproject">Twitter</a>
+		</div>
 	</div>
 
 </body>
 
 <script type="text/javascript">
-	function decrypt () {
-		return CryptoJS.AES.decrypt("encripted", "key").toString(CryptoJS.enc.Utf8);
-	}
-	
 	const params = new URLSearchParams(window.location.search);
-	const replyElement = document.getElementById("reply");
+	const keyFoundDiv = document.getElementById("key_found");
+	const keyNotFoundDiv = document.getElementById("no_key_found");
+
+	var encripted_url = "U2FsdGVkX1/YjqnNz007jnwItC6sTwp75KZasx5XtyaJKb46iMGI7iHc7EsmC8R8";
+	var key = "";
+	if (params != null && params.get('key') != null)
+		key = params.get('key').toString();
+
+
+	var decrypted_url = CryptoJS.AES.decrypt(encripted_url, key).toString(CryptoJS.enc.Utf8);
+
+	var weHaveKey = decrypted_url.startsWith("http://");
 	
-	if (params == null || params.get('key') == null)
-		replyElement.innerHTML = "No KEY was given on the URL, show info page";
-	else
-		replyElement.innerHTML = "KEY parameter is: "+params.get('key');
+	if (!weHaveKey) keyFoundDiv.classList.add("hidden");
+	else keyNotFoundDiv.classList.add("hidden");
+
+	if (weHaveKey) {
+		document.getElementById("url_link").href = decrypted_url;
+	}
 </script>
 </html>
