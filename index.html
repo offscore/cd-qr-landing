@@ -10,15 +10,21 @@ body {
 	background-position: 50% 0;
 	color: white;
 	margin: 0px;
+	font-size: large;
+}
+
+#content {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
 }
 
 h1 {
   color: #dda449;
   text-align: center;
-  margin-bottom:64px;
-  margin-top:32px;
+  padding-bottom:32px;
+  padding-top:32px;
 }
-
 a:link {
   color: #dda449;
   text-decoration: none;
@@ -47,18 +53,123 @@ text-align:center;
 	width: 100%;
 }
 
+.socials {
+	text-align: center;
+	margin-top: 64px;
+}
+.socials a {
+	margin: 32px;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#games {
+	padding-bottom: 32px;
+}
+
+.custom-track-wrapper {
+position: relative;
+margin-bottom:15px;
+}
+.custom-track-wrapper figure {
+margin: 0px;
+}
+.custom-track-image {
+float: left;
+object-fit: contain;
+//object-position: 0px;
+}
+.custom-track-button-wrapper {
+  text-align: center;
+  float: left;
+}
+.custom-track-button {
+  vertical-align: middle;
+  background-color: #dda449;
+  color: #FFFFFF;
+  padding: 15px;
+  margin: auto;
+margin-left:12px;
+margin-right:12px;
+  /*float: left;*/
+  display:inline-block;
+  margin-top: -30px;
+box-shadow: 5px 5px 5px rgba(128,128,0,0.5);
+}
+.custom-track-button-upcoming {
+  vertical-align: middle;
+  /*background-color: #888888;*/
+  color: #c8c8c8;
+  padding: 15px;
+  margin: auto;
+margin-left:12px;
+margin-right:12px;
+}
+
+.custom-image-unreleased {
+  -webkit-filter: grayscale(90%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(90%);
+  opacity: 0.8;
+}
+
 @media (max-width: 840px) {
-	div {
+	#content {
 		margin: 0 auto;
 		width: 90%;
 	}
 }
 @media (min-width: 839px) {
-	div {
+	#content {
 		margin: 0 auto;
-		width: 70%;
-		min-width: 600px;
+		width: 960px;
+		max-width: 100%;
 	}
+}
+
+@media (max-width: 640px) {
+  .custom-track-wrapper {
+    /*height: 200px;*/
+  }
+  .custom-track-image {
+    width:100%;
+    height: 300px;
+  }
+  .custom-track-button-wrapper {
+    width:100%;
+    //min-height:100px;
+  }
+  .custom-track-button {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 18px;
+  }
+  .custom-track-button-upcoming {
+    /*margin-top: 12px;
+    margin-bottom: 12px;*/
+    font-size: 18px;
+  }
+}
+@media (min-width: 640px) {
+  .custom-track-wrapper {
+    height: 300px;
+  }
+  .custom-track-image {
+    width:50%;
+    height: 300px;
+  }
+  .custom-track-button-wrapper {
+    width:50%;
+    position: relative;
+    top: 50%;
+  }
+  .custom-track-button {
+    margin-top:-30px;
+    font-size: 24px;
+  }
+  .custom-track-button-upcoming {
+    margin-top:-30px;
+    font-size: 24px;
+  }
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -70,22 +181,67 @@ text-align:center;
 	<div class="image_header">
 		<img class="header_banner" src="res/Itch_banner_v2x.gif">
 	</div>
-	<div>
+	<div id="content">
 		<h1>Off-Score games download for CD owners</h1>
 		<div id="no_key_found">
-		<p>This is the download website for the games in the <a href="http://offscoreproject.com">Off-Score Project</a>, for owners of the physical CDs of the album.</p>
+		<p>This is the download website for the games in the <a href="http://offscoreproject.com" target="_blank">Off-Score Project</a>, for owners of the physical CDs of the album.</p>
 		<p>It seems you have arrived here but you don't have the right URL with the proper code. If you own the CD, make sure to type the full written URL on the inside. Alternatively, you can scan the QR code printed in the CD.</p>
 		<p>If you are having troubles with the download of the games, send us an email at <a href="mailto:offscore.project@gmail.com">offscoreproject@gmail.com</a></p>
 		</div>
 		<div id="key_found">
-			<p>This is the download website for the games in the <a href="http://offscoreproject.com">Off-Score Project</a>, for owners of the physical CDs of the album.</p>
+			<div id="games">
+				<div class="custom-track-wrapper">
+					<a href="https://offscore.itch.io/copy-machine" target="_blank">
+						<img class="custom-track-image" src="https://img.itch.zone/aW1nLzMzOTc2MjAucG5n/original/W787Ka.png" alt="Copy Machine" title="Copy Machine">
+					</a>
+					<div class="custom-track-button-wrapper">
+						<a id="copy_machine_link" href="https://offscore.itch.io/copy-machine" target="_blank">
+							<div class="custom-track-button">Download for PC/Mac</div>
+						</a>
+					</div>
+					<a href="https://offscore.itch.io/copy-machine" target="_blank">
+					</a>
+				</div>
+				<div class="custom-track-wrapper">
+					<a href="https://offscore.itch.io/elephants-remember" target="_blank">
+						<img class="custom-track-image" src="https://img.itch.zone/aW1nLzQzNjgzMjUucG5n/original/tN6fUn.png" alt="Elephants Remember" title="Elephants Remember">
+					</a>
+					<div class="custom-track-button-wrapper">
+						<a id="elephants_link" href="https://offscore.itch.io/elephants-remember" target="_blank">
+							<div class="custom-track-button">Download for PC/Mac</div>
+						</a>
+					</div>
+					<a href="https://offscore.itch.io/copy-machine" target="_blank">
+					</a>
+				</div>
+				<div class="custom-track-wrapper">
+					<img class="custom-track-image custom-image-unreleased" src="https://img.itch.zone/aW1nLzM3Njg2MjEucG5n/original/8%2BA7l0.png" alt="Relativity" title="Relativity">
+					<div class="custom-track-button-wrapper">
+						<div class="custom-track-button-upcoming">Coming soon!</div>
+					</div>
+				</div>
+				<div class="custom-track-wrapper">
+					<img class="custom-track-image custom-image-unreleased" src="https://img.itch.zone/aW1nLzM3Njg2MTIucG5n/original/yE%2BZJm.png" alt="My Late Coming Puberty" title="My Late Coming Puberty">
+						<div class="custom-track-button-wrapper">
+						<div class="custom-track-button-upcoming">Coming soon!</div>
+					</div>
+				</div>
+					<div class="custom-track-wrapper">
+						<img class="custom-track-image custom-image-unreleased" src="https://img.itch.zone/aW1nLzM3Njg2MjcucG5n/original/F0t%2Bdz.png" alt="Cicada and Banyan tree" title="Cicada and Banyan tree">
+						<div class="custom-track-button-wrapper">
+							<div class="custom-track-button-upcoming">Coming soon!</div>
+						</div>
+					</div>
+			</div>
+			<p>This is the download website for the games in the <a href="http://offscoreproject.com" target="_blank">Off-Score Project</a>, for owners of the physical CDs of the album.</p>
 			<p>Thanks for buying our CD and supporting the project!</p>
-			<p>You can access and download the games clicking <a href="" id="url_link">Here</a></p>
-			<p/>
+			<p>You can access and download the games clicking the buttons above. Please notice, the games are currently only available to download and playable from a Windows PC or a Mac.<p/>
 			<p>If you are having troubles with the download of the games, send us an email at <a href="mailto:offscore.project@gmail.com">offscoreproject@gmail.com</a></p>
 		</div>
 		<div class="socials">
-			<a href="https://twitter.com/offscoreproject">Twitter</a>
+			<a href="http://offscoreproject.com" target="_blank">Website</a>
+			<a href="https://twitter.com/offscoreproject" target="_blank">Twitter</a>
+			<a href="https://mailchi.mp/a3fd75189881/off-score-project-mailing-list" target="_blank">Newsletter</a>
 		</div>
 	</div>
 
@@ -96,21 +252,32 @@ text-align:center;
 	const keyFoundDiv = document.getElementById("key_found");
 	const keyNotFoundDiv = document.getElementById("no_key_found");
 
-	var encripted_url = "U2FsdGVkX1/YjqnNz007jnwItC6sTwp75KZasx5XtyaJKb46iMGI7iHc7EsmC8R8";
+	var urls = [
+		"U2FsdGVkX1/XBSP18RfFaCV0maqinlj55xUpqixCNKCS51dHHKmYJNSB4L6zo21y7N0025CciaZ755KvINQ+ARLNOx4rCSaOPa8l94e7/4U0PAfr06w7x2g2JBm3A0GVZY5S1h22+oPpBFOav9DtkQ==", // CM
+		"U2FsdGVkX1/8Gp5LXoqk3J2u7u+O2lFKnuaMUfaDb6Olr5bZ+Y8P99OVbeVs2KKxxJ0bciPKPIb0xR8sAe7qKHpqMf7U+kCJRg0XyBtIczg/Uw+vdPLRUMhCs2d2FoeaOzs2d0AHHCcSXzi6RaTCmg==" // ER
+	]; 
+
 	var key = "";
 	if (params != null && params.get('key') != null)
 		key = params.get('key').toString();
 
 
-	var decrypted_url = CryptoJS.AES.decrypt(encripted_url, key).toString(CryptoJS.enc.Utf8);
+	var decrypted_urls = [];
+	var weHaveKey = true;
+	
+	for(let i = 0; weHaveKey && i < urls.length; ++i) {
+		let decrypted_url = CryptoJS.AES.decrypt(urls[i], key).toString(CryptoJS.enc.Utf8);
+		decrypted_urls.push(decrypted_url);
 
-	var weHaveKey = decrypted_url.startsWith("http://");
+		weHaveKey = decrypted_url.startsWith("https://");
+	}
 	
 	if (!weHaveKey) keyFoundDiv.classList.add("hidden");
 	else keyNotFoundDiv.classList.add("hidden");
 
 	if (weHaveKey) {
-		document.getElementById("url_link").href = decrypted_url;
+		document.getElementById("copy_machine_link").href = decrypted_urls[0];
+		document.getElementById("elephants_link").href = decrypted_urls[1];
 	}
 </script>
 </html>
