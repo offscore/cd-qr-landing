@@ -112,13 +112,13 @@ margin-right:12px;
   opacity: 0.8;
 }
 
-@media (max-width: 840px) {
+@media (max-width: 1000px) {
 	#content {
 		margin: 0 auto;
 		width: 90%;
 	}
 }
-@media (min-width: 839px) {
+@media (min-width: 999px) {
 	#content {
 		margin: 0 auto;
 		width: 960px;
@@ -184,9 +184,9 @@ margin-right:12px;
 	<div id="content">
 		<h1>Off-Score games download for CD owners</h1>
 		<div id="no_key_found">
-		<p>This is the download website for the games in the <a href="http://offscoreproject.com" target="_blank">Off-Score Project</a>, for owners of the physical CDs of the album.</p>
-		<p>It seems you have arrived here but you don't have the right URL with the proper code. If you own the CD, make sure to type the full written URL on the inside. Alternatively, you can scan the QR code printed in the CD.</p>
-		<p>If you are having troubles with the download of the games, send us an email at <a href="mailto:offscore.project@gmail.com">offscoreproject@gmail.com</a></p>
+			<p>This is the download website for the games in the <a href="http://offscoreproject.com" target="_blank">Off-Score Project</a>, for owners of the physical CDs of the album.</p>
+			<p>It seems you have arrived here but you don't have the right URL with the proper code. If you own the CD, make sure to type the full written URL on the inside. Alternatively, you can scan the QR code printed in the CD.</p>
+			<p>If you are having troubles with the download of the games, send us an email at <a href="mailto:offscore.project@gmail.com">offscoreproject@gmail.com</a></p>
 		</div>
 		<div id="key_found">
 			<div id="games">
@@ -226,12 +226,12 @@ margin-right:12px;
 						<div class="custom-track-button-upcoming">Coming soon!</div>
 					</div>
 				</div>
-					<div class="custom-track-wrapper">
-						<img class="custom-track-image custom-image-unreleased" src="https://img.itch.zone/aW1nLzM3Njg2MjcucG5n/original/F0t%2Bdz.png" alt="Cicada and Banyan tree" title="Cicada and Banyan tree">
-						<div class="custom-track-button-wrapper">
-							<div class="custom-track-button-upcoming">Coming soon!</div>
-						</div>
+				<div class="custom-track-wrapper">
+					<img class="custom-track-image custom-image-unreleased" src="https://img.itch.zone/aW1nLzM3Njg2MjcucG5n/original/F0t%2Bdz.png" alt="Cicada and Banyan tree" title="Cicada and Banyan tree">
+					<div class="custom-track-button-wrapper">
+						<div class="custom-track-button-upcoming">Coming soon!</div>
 					</div>
+				</div>
 			</div>
 			<p>This is the download website for the games in the <a href="http://offscoreproject.com" target="_blank">Off-Score Project</a>, for owners of the physical CDs of the album.</p>
 			<p>Thanks for buying our CD and supporting the project!</p>
@@ -266,10 +266,15 @@ margin-right:12px;
 	var weHaveKey = true;
 	
 	for(let i = 0; weHaveKey && i < urls.length; ++i) {
-		let decrypted_url = CryptoJS.AES.decrypt(urls[i], key).toString(CryptoJS.enc.Utf8);
-		decrypted_urls.push(decrypted_url);
+		try {
+			let decrypted_url = CryptoJS.AES.decrypt(urls[i], key).toString(CryptoJS.enc.Utf8);
+			decrypted_urls.push(decrypted_url);
 
-		weHaveKey = decrypted_url.startsWith("https://");
+			weHaveKey = decrypted_url.startsWith("https://");
+		}
+		catch (e) {
+			weHaveKey = false;
+		}
 	}
 	
 	if (!weHaveKey) keyFoundDiv.classList.add("hidden");
